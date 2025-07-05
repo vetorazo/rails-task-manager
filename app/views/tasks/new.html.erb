@@ -1,8 +1,22 @@
-<h1>New task</h1>
-<%= form_with model: @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-  <%= f.submit %>
-<% end %>
+<h1><i class="fas fa-plus me-2"></i>New task</h1>
+
+<div class="card">
+  <div class="card-body">
+    <%= form_with model: @task do |f| %>
+      <div class="mb-3">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      
+      <div class="mb-3">
+        <%= f.label :details %>
+        <%= f.text_area :details, class: "form-control", rows: 3 %>
+      </div>
+      
+      <%= f.submit "Create Task", class: "btn btn-primary" %>
+      <%= link_to tasks_path, class: "btn btn-secondary" do %>
+        <i class="fas fa-times me-2"></i>Cancel
+      <% end %>
+    <% end %>
+  </div>
+</div>
